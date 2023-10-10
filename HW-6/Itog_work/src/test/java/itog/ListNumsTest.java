@@ -4,11 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
-import static itog.ListNums.compareListsAverage;
+import static itog.ListNumsAverages.compareListsAverage;
+import static org.mockito.Mockito.*;
 
-class ListNumsTest {
-    ListNums list1, list2;
+class ListNumsAveragesTest {
+    ListNumsAverages list1, list2;
 
     @Test
     void compareListsAverage_ifAveragesIsEqualTest() {
@@ -50,5 +52,16 @@ class ListNumsTest {
 //            compareListsAverage(list1, list2);
 //        });
 //        assertNotNull(thrown.getMessage());
+    }
+    @Test
+    void listNumstoStringTest() {
+        ListNums list1 = new ListNums(new ArrayList(Arrays.asList(1, 2, 3, 4, 5)));
+
+        assert list1.toString().equals("{ 1, 2, 3, 4, 5 }");
+    }
+    @Test
+    void generatorTest() {
+        ListNums list1 = new ListNums(10);
+        assert list1.getSize() == 10;
     }
 }
