@@ -6,11 +6,12 @@ public class ListNumsAverages {
     public static String compareListsAverage(ListNums list1, ListNums list2) {
         if (list1 == null || list2 == null)
             return "Что-то не так со списками, возможно кого-то нет...";
-        try {
-            System.out.println(((Integer) list2.getList().get(0)));
-        } catch (ClassCastException ex) {
-            return "Что-то не так со списками, возможно тип...";
-        }
+        // Вариант без проброса исключения
+//        try {
+//            System.out.println(((Integer) list2.getList().get(0)));
+//        } catch (ClassCastException ex) {
+//            return "Что-то не так со списками, возможно тип...";
+//        }
 
         OptionalDouble avg1opt = list1.getList().stream().mapToDouble(x -> (double) x).average();
         OptionalDouble avg2opt = list2.getList().stream().mapToDouble(x -> (double) x).average();
